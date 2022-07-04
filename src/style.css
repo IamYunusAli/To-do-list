@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+
+body {
+  background-color: #f8f4f4;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 500px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  background: #eeecec;
+  border: 1px solid #928e8e;
+}
+
+header {
+  background-color: white;
+}
+
+.title {
+  margin-left: 15px;
+}
+
+.task-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #f8f4f4;
+}
+
+.header-list {
+  border-top: 2px solid #f8f4f4;
+}
+
+#input-task {
+  font-size: 17px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.task-lister {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.task-lister li {
+  list-style: none;
+}
+
+.task-item {
+  border-bottom: 2px solid #f8f4f4;
+}
+
+.task-input {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.label:active {
+  text-decoration: line-through;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.clear {
+  padding: 20px;
+  align-self: center;
+}
+
+#clear-task {
+  text-decoration: none;
+  color: black;
+}
+
+#clear-task:hover {
+  color: blue;
+  text-decoration: underline;
+}

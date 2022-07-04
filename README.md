@@ -9,9 +9,9 @@
 - JavaScript
 - VSCODE and webpack
 
-## Demo
+## Demo![demo](https://user-images.githubusercontent.com/32224137/177158585-930aff0a-77b6-4ea5-8122-68a77ad5afee.png)
 
-[Online Hosted Demo Link](https://iamyunusali.github.io/To-do-list/)
+[Online Hosted Demo Link](https://todolistyunusali.netlify.app/)
 
 ## Getting Started
 
@@ -24,7 +24,8 @@ Run
 ```
 1. git clone https://github.com/IamYunusAli/To-do-list.git
 2. cd
-3. Open it with live server
+3. npm run dev
+4.  use http://localhost:8080/ on your browser
 ```
 
 open it on editor and enjoy

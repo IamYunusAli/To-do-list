@@ -7,9 +7,8 @@ export const displayList = () => {
   const listItemObject = JSON.parse(window.localStorage.getItem('taskData') || '[]');
   for (let list = 0; list < listItemObject.length; list += 1) {
     const listPlaceholder = document.querySelector('.task-lister');
-    const element = document.createElement('li');
-    element.classList.add('task-list');
-    element.innerHTML = `
+    listPlaceholder.innerHTML += `
+                  <li class="task-list">
                     <div class="task-inner-box"  id="${listItemObject[list].index}">
                       <div class="task-list-item">
                         <div class="task-div line-through ${listItemObject[list].index}">
@@ -24,8 +23,8 @@ export const displayList = () => {
                           </div>
                       </div>
                       </div>
+                    </li>
                   `;
-    listPlaceholder.appendChild(element);
   }
   const editBtn = document.querySelectorAll('.editBtn');
   const removeBtn = document.querySelectorAll('.removeBtn');
@@ -50,7 +49,6 @@ export const displayList = () => {
   editBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       const indexEdit = parseInt(btn.id, 10) - 1;
-      // if (indexEdit < 0) { indexEdit = 1; }
       btn.classList.add('hidden');
       removeBtn[indexEdit].classList.remove('hidden');
     });
@@ -104,8 +102,6 @@ export const displayList = () => {
     });
   });
 
-  // remove selection color styling upon clicking anywhere
-
   function updateCompletedData(numberIndex, completedMark) {
     listItemObject[numberIndex].completed = completedMark;
     window.localStorage.setItem('taskData', JSON.stringify(listItemObject));
@@ -117,7 +113,6 @@ export const displayList = () => {
   while (indexCheckBox < checkbox.length) {
     checkbox[indexCheckBox].addEventListener('change', (e) => {
       if (e.target.checked) {
-        // get the index class of the clicked checkbox and convert to integer
         let number = parseInt(e.target.classList[1], 10) - 1;
         if (number < 0) { number = 0; }
         updateCompletedData(number, true);

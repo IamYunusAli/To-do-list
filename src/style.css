@@ -22,6 +22,11 @@ header {
   background-color: white;
 }
 
+.note {
+  color: red;
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }

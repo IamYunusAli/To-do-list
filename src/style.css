@@ -14,14 +14,16 @@ body {
   flex-direction: column;
   background: #eeecec;
   border: 1px solid #928e8e;
+  box-shadow: #999797 5px 5px 5px;
+  border-radius: 4px;
 }
 
 header {
   background-color: white;
 }
 
-.title {
-  margin-left: 15px;
+.hidden {
+  display: none;
 }
 
 .task-group {
@@ -36,11 +38,22 @@ header {
   border-top: 2px solid #f8f4f4;
 }
 
+.arrow-left {
+  font-size: 10px;
+}
+
+.optionBtn {
+  width: 10%;
+  text-align: end;
+  cursor: move;
+}
+
 #input-task {
   font-size: 17px;
   border: 0;
   outline: 0;
   width: 100%;
+  padding: 10px;
 }
 
 .task-lister {
@@ -53,20 +66,33 @@ header {
   list-style: none;
 }
 
-.task-item {
+.task-list {
   border-bottom: 2px solid #f8f4f4;
 }
 
-.task-input {
-  padding: 15px;
+.selected {
+  background: rgb(214, 214, 150);
+}
+
+.task-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  width: 90%;
+  float: right;
+  padding: 10px;
+  outline: 0;
+}
+
+.task-list-item {
+  padding: 2px 15px 0 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  cursor: pointer;
-}
-
-.label:active {
-  text-decoration: line-through;
+  align-items: center;
 }
 
 .line-through {
@@ -78,12 +104,12 @@ header {
   align-self: center;
 }
 
-#clear-task {
+#clear-btn {
   text-decoration: none;
   color: black;
 }
 
-#clear-task:hover {
+#clear-btn:hover {
   color: blue;
   text-decoration: underline;
 }

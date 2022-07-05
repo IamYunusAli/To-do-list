@@ -5,10 +5,12 @@ import TaskClass from './modules/TaskClass.js';
 import displayList from './modules/displaytask.js';
 import addTask from './modules/addtask.js';
 import updateCompletedDisplay from './modules/updatecomplete.js';
+import resetIndex from './modules/resetindex.js';
 
 const inputTask = document.querySelector('#input-task');
 const taskListPlaceholder = document.querySelector('.task-lister');
 const notifier = document.querySelector('.note');
+const clearBtn = document.querySelector('#clear-btn');
 
 displayList();
 updateCompletedDisplay();
@@ -31,4 +33,13 @@ inputTask.addEventListener('keypress', (event) => {
       notifier.classList.add('hidden');
     }
   }
+});
+
+clearBtn.addEventListener('click', () => {
+  const toDoListData = JSON.parse(window.localStorage.getItem('taskData') || '[]');
+  const clearItems = toDoListData.filter((completeList) => completeList.completed === false);
+  window.localStorage.setItem('bookData', JSON.stringify(clearItems));
+  resetIndex(clearItems);
+  taskListPlaceholder.innerHTML = '';
+  displayList();
 });

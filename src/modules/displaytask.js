@@ -84,7 +84,7 @@ export default function displayList() {
   });
 
   label.forEach((lbl) => {
-    lbl.addEventListener('dblclick', () => {
+    lbl.addEventListener('click', () => {
       lbl.contentEditable = 'true';
     });
     lbl.addEventListener('keypress', (event) => {

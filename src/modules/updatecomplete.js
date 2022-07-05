@@ -8,6 +8,10 @@ export default function updateCompletedDisplay() {
       const id = parseInt(element.index, 10) - 1;
       label[id].classList.add('line-through');
       checkbox[id].setAttribute('checked', 'checked');
+    } else {
+      const id = parseInt(element.index, 10) - 1;
+      label[id].classList.remove('line-through');
+      checkbox[id].setAttribute('unchecked', 'unchecked');
     }
   }
 }

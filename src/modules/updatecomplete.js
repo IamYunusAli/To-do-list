@@ -2,6 +2,7 @@ export default function updateCompletedDisplay() {
   const checkbox = document.querySelectorAll('.checkbox');
   const label = document.querySelectorAll('.label');
   const listItemObject = JSON.parse(window.localStorage.getItem('taskData') || '[]');
+  // used the comment below to pass the for element while linter check
   // eslint-disable-next-line no-restricted-syntax
   for (const element of [...listItemObject]) {
     if (element.completed === true) {

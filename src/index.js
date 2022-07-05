@@ -1,25 +1,29 @@
 /* eslint-disable linebreak-style */
 import './style.css';
+
+import TaskClass from './modules/TaskClass.js';
 import { displayList } from './modules/displaytask.js';
+import { addTask } from './modules/addtask.js';
+import { updateCompletedDisplay } from './modules/updatecomplete.js';
 
-const tasklist = [
-  {
-    description: 'Join Morning session call',
-    completed: 'true',
-    index: 1,
-  },
+const inputTask = document.querySelector('#input-task');
+const taskListPlaceholder = document.querySelector('.task-lister');
 
-  {
-    description: 'Work with my  coding partner',
-    completed: 'false',
-    index: 2,
-  },
+displayList();
+updateCompletedDisplay();
 
-  {
-    description: 'Take a lunch break and rest',
-    completed: 'false',
-    index: 3,
-  },
-];
-
-displayList(tasklist);
+// Execute a function when the user presses a key on the keyboard
+inputTask.addEventListener('keypress', (event) => {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === 'Enter') {
+    const toDoListData = JSON.parse(window.localStorage.getItem('taskData') || '[]');
+    // Cancel the default action, if needed
+    event.preventDefault();
+    const index = toDoListData.length + 1;
+    const toDoClass = new TaskClass(inputTask.value.trim(), false, index);
+    addTask(toDoClass);
+    taskListPlaceholder.innerHTML = '';
+    displayList();
+    inputTask.value = '';
+  }
+});

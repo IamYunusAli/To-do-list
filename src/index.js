@@ -2,9 +2,9 @@
 import './style.css';
 
 import TaskClass from './modules/TaskClass.js';
-import { displayList } from './modules/displaytask.js';
-import { addTask } from './modules/addtask.js';
-import { updateCompletedDisplay } from './modules/updatecomplete.js';
+import displayList from './modules/displaytask.js';
+import addTask from './modules/addtask.js';
+import updateCompletedDisplay from './modules/updatecomplete.js';
 
 const inputTask = document.querySelector('#input-task');
 const taskListPlaceholder = document.querySelector('.task-lister');

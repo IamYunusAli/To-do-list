@@ -1,9 +1,8 @@
-/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-restricted-syntax */
 import { toDoListData } from './todo.js';
-import { updateCompletedDisplay } from './updatecomplete.js';
+import updateCompletedDisplay from './updatecomplete.js';
 
-export const displayList = () => {
+export default function displayList() {
   const listItemObject = JSON.parse(window.localStorage.getItem('taskData') || '[]');
   for (let list = 0; list < listItemObject.length; list += 1) {
     const listPlaceholder = document.querySelector('.task-lister');
@@ -124,4 +123,4 @@ export const displayList = () => {
     });
     indexCheckBox += 1;
   }
-};
+}

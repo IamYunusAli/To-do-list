@@ -1,6 +1,4 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/prefer-default-export */
-export function updateCompletedDisplay() {
+export default function updateCompletedDisplay() {
   const checkbox = document.querySelectorAll('.checkbox');
   const label = document.querySelectorAll('.label');
   const listItemObject = JSON.parse(window.localStorage.getItem('taskData') || '[]');

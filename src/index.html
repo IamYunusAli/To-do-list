@@ -9,22 +9,26 @@
 </head>
 <body>
     <div class="container">
-        <header>
-             <h3 class="title">
-                Today's To Do
-            </h3>
-            <div class="task-list header-list">
-            <div class="task-input">
-                <input type="text" id="input-task" placeholder="Add to your list...">
-                <i class="reload bi bi-arrow-repeat"></i>
-            </div>
-            </div>
-        </header>
-        <ul class="task-lister">
-        </ul>
-        <div class="clear">
-            <a href="#" id="clear-task">Clear all completed</a>
+      <header>
+        <div class="task-list">
+          <div class="task-list-item">
+            <h3 class="title-list">Today's To Do</h3>
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
         </div>
+        <div class="task-list header-list">
+          <div class="task-list-item">
+            <input type="text" id="input-task" placeholder="Add to your list...">
+            <i class="arrow-left fa-solid fa-left-long" id="arrow-left"></i>
+          </div>
+        </div>
+      </header>
+      <ul class="task-lister">
+
+      </ul>
+      <div class="clear">
+        <a href="#" id="clear-btn">Clear all completed</a>
+      </div>
     </div>
 </body>
 </html>

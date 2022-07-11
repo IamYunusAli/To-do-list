@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import { toDoListData } from './todo.js';
 import { setData } from './setitems.js';
+import resetIndex from './resetindex.js';
 import updateCompletedDisplay from './updatecomplete.js';
 
 export default function displayList() {
@@ -53,15 +54,6 @@ export default function displayList() {
       removeBtn[indexEdit].classList.remove('hidden');
     });
   });
-
-  function resetIndex(index) {
-    let sum = 0;
-    for (const indexData of index) {
-      sum += 1;
-      indexData.index = sum;
-    }
-    setData(index);
-  }
 
   const items = JSON.parse(window.localStorage.getItem('taskData'));
   removeBtn.forEach((btn) => {

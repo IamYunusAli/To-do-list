@@ -1,5 +1,8 @@
-export default function addTask(taskObject) {
-  const listOfTask = JSON.parse(window.localStorage.getItem('taskData') || '[]');
-  listOfTask.push(taskObject);
-  window.localStorage.setItem('taskData', JSON.stringify(listOfTask));
+import { toDoListData } from './todo.js';
+import { setData } from './setitems.js';
+
+export default function addTask(taskinput) {
+  const taskList = toDoListData();
+  taskList.push(taskinput);
+  setData(taskList);
 }

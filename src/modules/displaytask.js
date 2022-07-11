@@ -1,23 +1,24 @@
 /* eslint-disable no-restricted-syntax */
 import { toDoListData } from './todo.js';
+import { setData } from './setitems.js';
 import updateCompletedDisplay from './updatecomplete.js';
 
 export default function displayList() {
-  const listItemObject = JSON.parse(window.localStorage.getItem('taskData') || '[]');
-  for (let list = 0; list < listItemObject.length; list += 1) {
+  const tasklists = toDoListData();
+  for (let items = 0; items < tasklists.length; items += 1) {
     const listPlaceholder = document.querySelector('.task-lister');
     listPlaceholder.innerHTML += `
-                  <li class="task-list">
-                    <div class="task-inner-box"  id="${listItemObject[list].index}">
-                      <div class="task-list-item">
-                        <div class="task-div line-through ${listItemObject[list].index}">
-                            <input class="checkbox ${listItemObject[list].index}" type="checkbox"/>
-                            <div id="${listItemObject[list].index}" class="label">${listItemObject[list].description}</div>
+                  <li class="task-items">
+                    <div class="task-inner-box"  id="${tasklists[items].index}">
+                      <div class="task-items-item">
+                        <div class="task-div line-through ${tasklists[items].index}">
+                            <input class="checkbox ${tasklists[items].index}" type="checkbox"/>
+                            <div id="${tasklists[items].index}" class="label">${tasklists[items].description}</div>
                           </div>
-                          <div class="optionBtn editBtn ${listItemObject[list].index}" id="${listItemObject[list].index}">
+                          <div class="optionBtn editBtn ${tasklists[items].index}" id="${tasklists[items].index}">
                           <i class="opt bi bi-three-dots-vertical"></i>
                           </div>
-                          <div class="optionBtn deleteBtn removeBtn ${listItemObject[list].index} hidden" id="${listItemObject[list].index}">
+                          <div class="optionBtn deleteBtn removeBtn ${tasklists[items].index} hidden" id="${tasklists[items].index}">
                           <i class="bi bi-trash-fill"></i>
                           </div>
                       </div>
@@ -27,12 +28,12 @@ export default function displayList() {
   }
   const editBtn = document.querySelectorAll('.editBtn');
   const removeBtn = document.querySelectorAll('.removeBtn');
-  const taskInnerBox = document.querySelectorAll('.task-inner-box');
+  const taskIn = document.querySelectorAll('.task-inner-box');
   const label = document.querySelectorAll('.label');
   const taskListPlaceholder = document.querySelector('.task-lister');
 
   const clearSelection = () => {
-    for (const boxClassList of [...Object(taskInnerBox)]) {
+    for (const boxClassList of [...Object(taskIn)]) {
       if (boxClassList.classList.contains('selected')) {
         boxClassList.classList.remove('selected');
       }
@@ -53,29 +54,29 @@ export default function displayList() {
     });
   });
 
-  function resetIndex(objectListIndex) {
+  function resetIndex(index) {
     let sum = 0;
-    for (const indexData of [...objectListIndex]) {
+    for (const indexData of index) {
       sum += 1;
       indexData.index = sum;
     }
-    window.localStorage.setItem('taskData', JSON.stringify(objectListIndex));
+    setData(index);
   }
 
-  const list = JSON.parse(window.localStorage.getItem('taskData'));
+  const items = JSON.parse(window.localStorage.getItem('taskData'));
   removeBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = parseInt(btn.id, 10) - 1;
-      list.splice(id, 1);
-      resetIndex(list);
+      items.splice(id, 1);
+      resetIndex(items);
       taskListPlaceholder.innerHTML = '';
       displayList();
     });
   });
 
-  taskInnerBox.forEach((box) => {
+  taskIn.forEach((box) => {
     box.addEventListener('click', () => {
-      clearSelection(taskInnerBox);
+      clearSelection(taskIn);
       box.classList.add('selected');
       const id = parseInt(box.id, 10) - 1;
       removeBtn[id].classList.remove('hidden');
@@ -94,7 +95,7 @@ export default function displayList() {
         let id = lbl.id - 1;
         if (id < 0) { id = 0; }
         toDoListData[id].description = str;
-        window.localStorage.setItem('taskData', JSON.stringify(toDoListData));
+        setData(toDoListData);
         taskListPlaceholder.innerHTML = '';
         displayList();
       }
@@ -102,8 +103,8 @@ export default function displayList() {
   });
 
   function updateCompletedData(numberIndex, completedMark) {
-    listItemObject[numberIndex].completed = completedMark;
-    window.localStorage.setItem('taskData', JSON.stringify(listItemObject));
+    tasklists[numberIndex].completed = completedMark;
+    setData(tasklists);
     updateCompletedDisplay();
   }
 

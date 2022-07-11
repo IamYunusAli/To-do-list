@@ -100,6 +100,11 @@ header {
   align-items: center;
 }
 
+.task-items-item {
+  display: flex;
+  padding: 2px 10px;
+}
+
 .line-through {
   text-decoration: line-through;
 }

@@ -16,11 +16,7 @@
 
 ## Getting Started
 
-**Getting stared with learning full stack web developments.**
-
-> How to clone the project.
-
-## Run the following tests
+**How to Run these project**
 
 - git clone https://github.com/IamYunusAli/To-do-list.git
 - cd to-do-list
@@ -32,21 +28,21 @@ open it on editor and enjoy
 
 ## Authors
 
-👤 **Yunus **
+👤 **Yunus**
 
 - GitHub: [@IamYunusALi](https://github.com/iamyunusali)
 
 
 
-👤 **Usindi **
+👤 **Usindi**
 
-- GitHub: [https://github.com/bienvenuushindi)
+- GitHub: [@bienvenuushindi](https://github.com/bienvenuushindi)
 
 
 
 👤 **Kelwilson**
 
-- GitHub: [https://github.com/kelwilson)
+- GitHub: [@kelwilson](https://github.com/kelwilson)
 
 
 

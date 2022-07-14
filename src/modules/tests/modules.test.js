@@ -1,7 +1,7 @@
 import addTask from '../addtask.js';
 import { toDoListData } from '../todo.js';
 import { setData } from '../setitems.js';
-import { removeTask } from '../interactive.js';
+import { removeTask, editTodo , completeTodo} from '../interactive.js';
 
 const key = 'taskData';
 const data = [{
@@ -30,7 +30,18 @@ describe('When adding and removing a task you', () => {
     expect(toDoListData()[0].description).toBe('wash clothes');
   });
 });
+test('Editing', () => {
+  const input= 'hello world';
+  editTodo(1, input);
+  expect(toDoListData()[0].description).toBe(input);
+  expect(toDoListData()).toHaveLength(1);
+});
 
+test('completed', () => {
+  completeTodo(1, true);
+  expect(toDoListData()[0].completed).toBeTruthy();
+  expect(toDoListData()).toHaveLength(1);
+});
 test('Should add new data to localStorage ', () => {
   const expected = '{"description":"lorem ipsum coletas","completed":false,"index":1}';
   setData(data[0]);

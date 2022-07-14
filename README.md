@@ -1,6 +1,6 @@
 # To Do list
 
-> A github repo for a todo list phase 1
+> A github repo for a todo list
 
 ## Built With
 
@@ -8,6 +8,7 @@
 - CSS
 - JavaScript
 - VSCODE and webpack
+- jest
 
 ## Demo![demo](https://user-images.githubusercontent.com/32224137/177158585-930aff0a-77b6-4ea5-8122-68a77ad5afee.png)
 
@@ -15,28 +16,35 @@
 
 ## Getting Started
 
-**Getting stared with learning full stack web developments.**
+**How to Run these project**
 
-> How to clone the project.
-
-Run
-
-```
-1. git clone https://github.com/IamYunusAli/To-do-list.git
-2. cd
-3. npm run dev
-4.  use http://localhost:8080/ on your browser
-```
+- git clone https://github.com/IamYunusAli/To-do-list.git
+- cd to-do-list
+- git checkout test-add
+- npm i
+- npm test
 
 open it on editor and enjoy
 
-## Author
+## Authors
 
-👤 **Author **
+👤 **Yunus**
 
 - GitHub: [@IamYunusALi](https://github.com/iamyunusali)
-- Twitter: [@IamYunusAli](https://twitter.com/iamyunusali)
-- LinkedIn: [Yunus ALi](https://linkedin.com/in/iamyunusali)
+
+
+
+👤 **Usindi**
+
+- GitHub: [@bienvenuushindi](https://github.com/bienvenuushindi)
+
+
+
+👤 **Kelwilson**
+
+- GitHub: [@kelwilson](https://github.com/kelwilson)
+
+
 
 ## 🤝 Contributing
 

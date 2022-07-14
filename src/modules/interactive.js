@@ -18,8 +18,8 @@ export function editTodo(reindex, todoDescription) {
   setData(toDoListDatas);
 }
 
-export function completeTodo(reindex, status) {
-  const duplicate=toDoListData();
+export function completeTodo(reindex) {
+  const duplicate = toDoListData();
   duplicate.forEach((element) => {
     if (element.index === reindex) {
       element.completed = !element.completed;

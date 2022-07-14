@@ -51,15 +51,14 @@ test('Editing a selected items', () => {
 });
 
 test('completed', () => {
-  addTask(data[2])
-  completeTodo(0, true);
+  completeTodo(1 );
   expect(toDoListData()[0].completed).toBeTruthy();
-  expect(toDoListData()).toHaveLength(2);
+  expect(toDoListData()).toHaveLength(1);
 });
 
 test('clear all completed items', () => {
   addTask(data[3]);
-  expect(toDoListData()).toHaveLength(3);
+  expect(toDoListData()).toHaveLength(2);
   clearCompletedTodos();
   expect(toDoListData()).toHaveLength(1);
 });

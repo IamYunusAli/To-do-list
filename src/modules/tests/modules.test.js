@@ -9,7 +9,7 @@ const data = [{
   completed: false,
   index: 1,
 }, {
-  description: 'ipsum lorem coletas',
+  description: 'wash clothes',
   completed: false,
   index: 2,
 }];
@@ -18,15 +18,20 @@ test('Should get  data from localStorage if exist ', () => {
 });
 describe('When adding and removing a task you', () => {
 
+
+
   test('Should append the new task ', () => {
+
     addTask(data[0]);
     addTask(data[1]);
     expect(toDoListData().length).toEqual(2);
+    expect(toDoListData()[1].index).toBe(2);
   });
 
   test('Should remove item from the list', () => {
     removeTask(1);
     expect(toDoListData().length).toEqual(1);
+    expect(toDoListData()[0].description).toBe('wash clothes')
   });
 
 });

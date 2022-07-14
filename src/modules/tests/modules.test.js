@@ -51,7 +51,7 @@ test('Editing a selected items', () => {
 });
 
 test('completed', () => {
-  completeTodo(1 );
+  completeTodo(1);
   expect(toDoListData()[0].completed).toBeTruthy();
   expect(toDoListData()).toHaveLength(1);
 });

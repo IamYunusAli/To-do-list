@@ -1,10 +1,11 @@
 import { toDoListData } from './todo.js';
 import resetIndex from './resetindex.js';
+import { setData } from './setitems.js';
 
 export function removeTask(reindex) {
   const toDoListDatas = toDoListData().filter((todo) => todo.index !== reindex);
   resetIndex(toDoListDatas);
-  window.localStorage.setItem('taskData', JSON.stringify(toDoListDatas));
+  setData(toDoListDatas);
 }
 
 export function editTodo(reindex, todoDescription) {
@@ -14,17 +15,17 @@ export function editTodo(reindex, todoDescription) {
     }
     return todo;
   });
-  window.localStorage.setItem('taskData', JSON.stringify(toDoListDatas));
+  setData(toDoListDatas);
 }
 
 export function completeTodo(reindex, status) {
-  const selected = toDoListData().findIndex((element) => element.index === reindex);
-  toDoListData()[selected].completed = status;
-  localStorage.setItem('todos', JSON.stringify(selected));
+  const selected = toDoListData();
+  selected[reindex].completed = status;
+  setData(selected);
 }
 
 export function clearCompletedTodos() {
   const toDoListDatas = toDoListData().filter((todo) => !todo.completed);
   resetIndex(toDoListDatas);
-  window.localStorage.setItem('taskData', JSON.stringify(toDoListDatas));
+  setData(toDoListDatas);
 }

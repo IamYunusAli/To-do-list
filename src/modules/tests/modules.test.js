@@ -1,7 +1,9 @@
 import addTask from '../addtask.js';
 import { toDoListData } from '../todo.js';
 import { setData } from '../setitems.js';
-import { removeTask, editTodo , completeTodo} from '../interactive.js';
+import {
+  removeTask, editTodo, completeTodo, clearCompletedTodos,
+} from '../interactive.js';
 
 const key = 'taskData';
 const data = [{
@@ -12,7 +14,18 @@ const data = [{
   description: 'wash clothes',
   completed: false,
   index: 2,
-}];
+},
+{
+  description: 'head home',
+  completed: true,
+  index: 3,
+},
+{
+  description: 'do projects',
+  completed: false,
+  index: 4,
+},
+];
 test('Should get  data from localStorage if exist ', () => {
   expect(Array.isArray(toDoListData())).toBe(true);
 });
@@ -30,16 +43,24 @@ describe('When adding and removing a task you', () => {
     expect(toDoListData()[0].description).toBe('wash clothes');
   });
 });
-test('Editing', () => {
-  const input= 'hello world';
+test('Editing a selected items', () => {
+  const input = 'hello world';
   editTodo(1, input);
   expect(toDoListData()[0].description).toBe(input);
   expect(toDoListData()).toHaveLength(1);
 });
 
 test('completed', () => {
-  completeTodo(1, true);
+  addTask(data[2])
+  completeTodo(0, true);
   expect(toDoListData()[0].completed).toBeTruthy();
+  expect(toDoListData()).toHaveLength(2);
+});
+
+test('clear all completed items', () => {
+  addTask(data[3]);
+  expect(toDoListData()).toHaveLength(3);
+  clearCompletedTodos();
   expect(toDoListData()).toHaveLength(1);
 });
 test('Should add new data to localStorage ', () => {
